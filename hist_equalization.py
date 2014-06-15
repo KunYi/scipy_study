@@ -36,8 +36,10 @@ axarr[0, 0].set_title('original image')
 
 hist = getHist(lena)
 hist = normalizeiHist(hist, t)
+ylim_max = hist.max() * 1.05
 axarr[0, 1].bar(range(256), hist)
 axarr[0, 1].set_xlim([0,255])
+axarr[0, 1].set_ylim([0,ylim_max])
 axarr[0, 1].set_title('histogram')
 
 cdp = getCDF(hist)
@@ -63,6 +65,7 @@ hist = normalizeiHist(hist, t)
 
 axarr[1, 1].bar(range(256), hist)
 axarr[1, 1].set_xlim([0,255])
+axarr[1, 1].set_ylim([0,ylim_max])
 
 cdf = getCDF(hist)
 axarr[1, 2].plot(np.linspace(0,1,256),cdf)
